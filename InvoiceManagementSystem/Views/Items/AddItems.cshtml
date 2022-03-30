@@ -1,0 +1,121 @@
+﻿@model InvoiceManagementSystem.ViewModels.ItemsViewModels
+
+
+@{
+    ViewData["Title"] = "AddItems";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1>New Items</h1>
+    </div>
+    <hr />
+    <div class="card Itemformbox">
+    <div class="container">
+        <div id="msg" class="alert alert-dismissible alert-success" style="display:none">
+
+        </div>
+        <form method="post" class="form-group" id="ADDITEMFORM" asp-controller="Items" asp-action="AddItems">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Types:</label>
+                    </div>
+                    <div class="col-6">
+                        <label class="radio-inline">
+                            <input asp-for="Type" type="radio" name="Type" id="optradio" value="Goods">Goods
+                        </label>
+                        <label class="radio-inline">
+                            <input asp-for="Type" type="radio" name="Type" id="optradio" value="Service">Services
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" type="text" class="form-control" id="txtitemsName" placeholder="Items Name" />
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Unit</label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Unit" class="form-control" id="selectUnit" searchable="Search here..">
+                            <option value="" disabled selected>Select</option>
+                            <option value="Meter">Meter (m)</option>
+                            <option value="Kilogram">Kilogram (kg)</option>
+                            <option value="Ampere">Ampere (A)</option>
+                            <option value="Kelvin">Kelvin (K)</option>
+                            <option value="Candela">Candela (cd)</option>
+                            <option value="liter">liter (l)</option>
+
+                        </select>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Selling Price</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="SellingPrice" type="text" class="form-control" id="txtsellingPrice" placeholder="PKR" />
+                    </div>
+                   </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Description</label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="Description"   class="form-control" id="txtDescription" placeholder="Description"></textarea>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Tax</label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Tax"  class="form-control" id="selectTax" searchable="Search here..">
+                            <option value="" disabled selected>Select a Tax</option>
+                            <option value="5%">5%</option>
+                            <option value="10%">10%</option>
+                            <option value="20%">20%</option>
+                            <option value="30%">30%</option>
+                        </select>
+                    </div>
+                  
+                </div>
+            </div>
+      <hr />
+      <div class="form-group">
+          <div class="row">
+              <div class="col-2">
+              <button type="button" class="btn btn-block btn-outline-success btn-lg" id="btnSaveItems">Save</button>            
+              </div>
+              <div class="col-2">
+                  <button type="button" class="btn btn-block btn-outline-danger btn-lg">Cancel</button>
+              </div>
+          </div>
+      </div>
+        </form>
+        <label id="lblName"></label>
+    </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/Theme/Assets/js/AddItems.js"></script>
